@@ -18,13 +18,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib. user/getbyimusername
     ////get和post请求数据
-//    [[AFNetAPIClient sharedJsonClient].setRequest(@"user/getbyimusername/").RequestType(Get).Parameters(nil) startRequestWithSuccess:^(NSURLSessionDataTask *task, id responseObject) {
-//        NSLog(@"成功");
-//    } progress:^(NSProgress *progress) {
-//        NSLog(@"1111");
-//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-//        NSLog(@"bu成功");
-//    }];
+    [[AFNetAPIClient sharedJsonClient].setRequest(@"user/getbyimusername/").RequestType(Get).Parameters(nil) startRequestWithSuccess:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"成功");
+    } progress:^(NSProgress *progress) {
+        NSLog(@"1111");
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"bu成功");
+    }];
 
 
 //    [[AFNetAPIClient sharedJsonClient].setRequest(@"user/getbyimusername/").RequestType(Post).Parameters(nil) startRequestWithSuccess:^(NSURLSessionDataTask *task, id responseObject) {
@@ -36,7 +36,7 @@
 //    }];
 //
 //    //上传图片
-//    UIImage *img = [UIImage imageNamed:@"1.jpg"];
+//    UIImage *img = [UIImage imageNamed:@"1"];
 //
 //    NSData *data = UIImageJPEGRepresentation(img, 0.5);
 //
@@ -56,15 +56,15 @@
 //        NSLog(@"bu成功");
 //    }];
 //    ////下载文件
-    [[AFNetAPIClient sharedJsonClient].setRequest(@"http://120.25.226.186:32812/resources/videos/minion_02.mp4") downloadWithSuccess:^(NSURLResponse *response, NSURL *filePath) {
-          NSLog(@"成功");
-    } progress:^(NSProgress *progress) {
-          NSLog(@"1111");
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-          NSLog(@"bu成功");
-    }];
+//    [[AFNetAPIClient sharedJsonClient].setRequest(@"http://120.25.226.186:32812/resources/videos/minion_02.mp4") downloadWithSuccess:^(NSURLResponse *response, NSURL *filePath) {
+//          NSLog(@"成功");
+//    } progress:^(NSProgress *progress) {
+//          NSLog(@"1111");
+//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+//          NSLog(@"bu成功");
+//    }];
+//}
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

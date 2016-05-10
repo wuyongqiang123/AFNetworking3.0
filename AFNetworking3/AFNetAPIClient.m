@@ -44,6 +44,7 @@
     self.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/plain", @"text/javascript", @"text/json", nil];
     //请求格式
     [self.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    self.wRequestType = Get;
 //    self.securityPolicy.allowInvalidCertificates = YES;
 
     
@@ -59,12 +60,7 @@
 
 - (AFNetAPIClient *(^)(NetworkMethod))RequestType {
     return ^AFNetAPIClient* (NetworkMethod type) {
-        if (type) {
-            self.wRequestType = type;
-        }
-        else{
-            self.wRequestType = Get;
-        }
+        self.wRequestType = type;
 
         return self;
     };
@@ -112,6 +108,7 @@
      AFNetAPIClient * manager = [[self class]sharedJsonClient];
     //设置请求头
     [self setupHTTPHeaderWithManager:manager];
+    
     switch (self.wRequestType) {
         case Get: {
             [manager GET:self.url parameters:self.parameters progress:^(NSProgress * _Nonnull downloadProgress) {
