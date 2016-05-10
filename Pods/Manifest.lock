@@ -1,0 +1,24 @@
+PODS:
+  - AFNetworking (HEAD based on 3.0.4):
+    - AFNetworking/NSURLSession (= HEAD based on 3.0.4)
+    - AFNetworking/Reachability (= HEAD based on 3.0.4)
+    - AFNetworking/Security (= HEAD based on 3.0.4)
+    - AFNetworking/Serialization (= HEAD based on 3.0.4)
+    - AFNetworking/UIKit (= HEAD based on 3.0.4)
+  - AFNetworking/NSURLSession (HEAD based on 3.0.4):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (HEAD based on 3.0.4)
+  - AFNetworking/Security (HEAD based on 3.0.4)
+  - AFNetworking/Serialization (HEAD based on 3.0.4)
+  - AFNetworking/UIKit (HEAD based on 3.0.4):
+    - AFNetworking/NSURLSession
+
+DEPENDENCIES:
+  - AFNetworking (HEAD)
+
+SPEC CHECKSUMS:
+  AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
+
+COCOAPODS: 0.39.0
