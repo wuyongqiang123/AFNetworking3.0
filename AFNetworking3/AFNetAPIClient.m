@@ -75,7 +75,7 @@
     [self.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     self.wRequestType = Get;
 //    self.securityPolicy.allowInvalidCertificates = YES;
-    self.securityPolicy = [self customSecurityPolicy];
+    //self.securityPolicy = [self customSecurityPolicy];
     return self;
 }
 
