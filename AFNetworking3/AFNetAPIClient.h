@@ -45,7 +45,10 @@ typedef void(^WYQFileSuccess)(NSURLResponse * response,NSURL * filePath);
 @interface AFNetAPIClient : AFHTTPSessionManager
 
 + (AFNetAPIClient *)sharedJsonClient;//单例
-
+/**
+ *  网络壮态
+ */
+-(void)netWorkReachability;
 
 /**
  *  @method      请求网址
@@ -106,7 +109,14 @@ typedef void(^WYQFileSuccess)(NSURLResponse * response,NSURL * filePath);
  *  @param Success  成功的回调
  *  @param Progress 进度的回调
  *  @param Fail     请求错误的
+ *  @return 返回NSURLSessionDownloadTask实例，可用于暂停继续，暂停调用suspend方法，重新开启下载调用resume方法
  */
--(void)downloadWithSuccess:(WYQFileSuccess)WSuccess progress:(WYQProgress)Progress failure:(WYQResponseFail)Fail;
+-(NSURLSessionDownloadTask *)downloadWithSuccess:(WYQFileSuccess)WSuccess progress:(WYQProgress)Progress failure:(WYQResponseFail)Fail;
+
+/**
+ *  取消所有网络请求
+ */
+- (void)cancelAllRequest;
+
 
 @end
