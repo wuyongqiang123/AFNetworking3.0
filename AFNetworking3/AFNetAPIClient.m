@@ -7,11 +7,13 @@
 //
 
 #import "AFNetAPIClient.h"
-
+#import "NSJSONSerialization+LYJSON.h"
 @interface AFNetAPIClient ()
 
 @property (nonatomic,copy)NSString * url;
 @property (nonatomic,assign)NetworkMethod wRequestType;
+@property (assign,nonatomic)WYQHTTPClientRequestCachePolicy wRequestCache;
+@property (assign,nonatomic)NSTimeInterval timeoutInterval;
 @property (nonatomic,strong)NSData * Wyqfile_data;
 @property (nonatomic,copy)NSString * Wyqname;
 @property (nonatomic,copy)NSString * Wyqfilename;
@@ -70,10 +72,14 @@
     //超时时间
     self.requestSerializer.timeoutInterval = 20;
     //返回格式
-    self.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/plain", @"text/javascript", @"text/json", nil];
+    self.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/plain", @"text/javascript", @"text/json",@"text/html", nil];
     //请求格式
     [self.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     self.wRequestType = Get;
+    //缓存类型
+    self.wRequestCache = WYQHTTPClientReloadIgnoringLocalCacheData;
+    //缓存时间默认为 60*60
+    self.timeoutInterval = 60*60;
 //    self.securityPolicy.allowInvalidCertificates = YES;
     //self.securityPolicy = [self customSecurityPolicy];
     return self;
@@ -89,6 +95,20 @@
 - (AFNetAPIClient *(^)(NetworkMethod))RequestType {
     return ^AFNetAPIClient* (NetworkMethod type) {
         self.wRequestType = type;
+
+        return self;
+    };
+}
+- (AFNetAPIClient* (^)(WYQHTTPClientRequestCachePolicy))Cachetype{
+    return ^AFNetAPIClient* (WYQHTTPClientRequestCachePolicy type) {
+        self.wRequestCache = type;
+
+        return self;
+    };
+}
+- (AFNetAPIClient* (^)(NSTimeInterval))time {
+    return ^AFNetAPIClient* (NSTimeInterval timeoutInterval) {
+        self.timeoutInterval = timeoutInterval;
 
         return self;
     };
@@ -136,13 +156,61 @@
      AFNetAPIClient * manager = [[self class]sharedJsonClient];
     //设置请求头
     [self setupHTTPHeaderWithManager:manager];
-    
+
+    NSString *cacheKey = self.url?self.url:@"";
+    if (self.parameters) {
+        if (![NSJSONSerialization isValidJSONObject:self.parameters]) return;//参数不是json类型
+        NSData *data = [NSJSONSerialization dataWithJSONObject:self.parameters options:NSJSONWritingPrettyPrinted error:nil];
+        NSString *paramStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        cacheKey = [cacheKey stringByAppendingString:paramStr];
+    }
+    //初始化缓存
+    EGOCache *egocache = [EGOCache globalCache];
+    //设置缓存时间 默认时间一天  一天的时间表示：24*60*60
+    egocache.defaultTimeoutInterval = self.timeoutInterval;
+    //获取缓存
+    id object = [egocache objectForKey:cacheKey];
+    switch (self.wRequestCache) {
+        case WYQHTTPClientReturnCacheDataThenLoad: {//先返回缓存，同时请求
+            if (object) {
+                Success(nil,object);
+            }
+            break;
+        }
+        case WYQHTTPClientReloadIgnoringLocalCacheData: {//忽略本地缓存直接请求
+            //不做处理，直接请求
+            break;
+        }
+        case WYQHTTPClientReturnCacheDataElseLoad: {//有缓存就返回缓存，没有就请求
+            if (object) {//有缓存
+                Success(nil,object);
+                return ;
+            }
+            break;
+        }
+        case WYQHTTPClientReturnCacheDataDontLoad: {//有缓存就返回缓存,从不请求（用于没有网络）
+            if (object) {//有缓存
+                Success(nil,object);
+
+            }
+            return ;//退出从不请求
+        }
+        default: {
+            break;
+        }
+    }
+
     switch (self.wRequestType) {
         case Get: {
             [manager GET:self.url parameters:self.parameters progress:^(NSProgress * _Nonnull downloadProgress) {
 //                progress(downloadProgress.fractionCompleted)
                 Progress(downloadProgress);//downloadProgress.fractionCompleted
             } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                if ([responseObject isKindOfClass:[NSData class]]) {
+                    responseObject = [NSJSONSerialization objectWithJSONData:responseObject];
+                }
+                [egocache setObject:responseObject forKey:cacheKey];
+
                 Success(task,responseObject);
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                 Fail(task,error);
@@ -154,6 +222,10 @@
             [manager POST:self.url parameters:self.parameters progress:^(NSProgress * _Nonnull downloadProgress) {
                 Progress(downloadProgress);
             } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                if ([responseObject isKindOfClass:[NSData class]]) {
+                    responseObject = [NSJSONSerialization objectWithJSONData:responseObject];
+                }
+                [egocache setObject:responseObject forKey:cacheKey];
                 Success(task,responseObject);
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                 Fail(task,error);
@@ -163,6 +235,10 @@
 
         case Put: {
             [manager PUT:self.url parameters:self.parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                if ([responseObject isKindOfClass:[NSData class]]) {
+                    responseObject = [NSJSONSerialization objectWithJSONData:responseObject];
+                }
+                [egocache setObject:responseObject forKey:cacheKey];
                 Success(task,responseObject);
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                 Fail(task,error);
@@ -172,6 +248,10 @@
 
         case Delete: {
             [manager DELETE:self.url parameters:self.parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                if ([responseObject isKindOfClass:[NSData class]]) {
+                    responseObject = [NSJSONSerialization objectWithJSONData:responseObject];
+                }
+                [egocache setObject:responseObject forKey:cacheKey];
                 Success(task,responseObject);
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                Fail(task,error);

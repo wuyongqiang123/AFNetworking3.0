@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		04AE28921CE1EB9B002302D9 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04AE28911CE1EB9B002302D9 /* 1.jpg */; };
+		04BE2B461D64061500C67DD6 /* NSJSONSerialization+LYJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BE2B451D64061500C67DD6 /* NSJSONSerialization+LYJSON.m */; };
 		2F7092521C4611060001E252 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F7092511C4611060001E252 /* main.m */; };
 		2F7092551C4611060001E252 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F7092541C4611060001E252 /* AppDelegate.m */; };
 		2F7092581C4611060001E252 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F7092571C4611060001E252 /* ViewController.m */; };
@@ -17,7 +18,7 @@
 		2F70926B1C4611060001E252 /* AFNetworking3Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F70926A1C4611060001E252 /* AFNetworking3Tests.m */; };
 		2F7092761C4611060001E252 /* AFNetworking3UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F7092751C4611060001E252 /* AFNetworking3UITests.m */; };
 		2F7092851C4614E70001E252 /* AFNetAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F7092841C4614E70001E252 /* AFNetAPIClient.m */; };
-		90A14A99F95401FB73EA7DB2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E011640E5136D3308663F432 /* libPods.a */; };
+		3F41D01FCDF94B4EAF68979A /* libPods-AFNetworking3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5779A395983E89B0BA29DE2 /* libPods-AFNetworking3.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01B754CA56E1B17619122079 /* Pods-AFNetworking3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AFNetworking3.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AFNetworking3/Pods-AFNetworking3.debug.xcconfig"; sourceTree = "<group>"; };
 		04AE28911CE1EB9B002302D9 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
-		2D3E6C3E59E1B1E2DA19111B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		04BE2B441D64061500C67DD6 /* NSJSONSerialization+LYJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSJSONSerialization+LYJSON.h"; sourceTree = "<group>"; };
+		04BE2B451D64061500C67DD6 /* NSJSONSerialization+LYJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSJSONSerialization+LYJSON.m"; sourceTree = "<group>"; };
 		2F70924D1C4611060001E252 /* AFNetworking3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AFNetworking3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F7092511C4611060001E252 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2F7092531C4611060001E252 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -58,8 +61,8 @@
 		2F7092771C4611060001E252 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F7092831C4614E70001E252 /* AFNetAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetAPIClient.h; sourceTree = "<group>"; };
 		2F7092841C4614E70001E252 /* AFNetAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetAPIClient.m; sourceTree = "<group>"; };
-		40AD37A2FC6A00692212FBED /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		E011640E5136D3308663F432 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		69FED9A5E973517E40FA682F /* Pods-AFNetworking3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AFNetworking3.release.xcconfig"; path = "Pods/Target Support Files/Pods-AFNetworking3/Pods-AFNetworking3.release.xcconfig"; sourceTree = "<group>"; };
+		B5779A395983E89B0BA29DE2 /* libPods-AFNetworking3.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AFNetworking3.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90A14A99F95401FB73EA7DB2 /* libPods.a in Frameworks */,
+				3F41D01FCDF94B4EAF68979A /* libPods-AFNetworking3.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,12 +91,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1E3B702545036D77F38AE27D /* Frameworks */ = {
+		0F563218994F1AD459D069B4 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E011640E5136D3308663F432 /* libPods.a */,
+				01B754CA56E1B17619122079 /* Pods-AFNetworking3.debug.xcconfig */,
+				69FED9A5E973517E40FA682F /* Pods-AFNetworking3.release.xcconfig */,
 			);
-			name = Frameworks;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		2F7092441C4611060001E252 = {
@@ -103,8 +107,8 @@
 				2F7092691C4611060001E252 /* AFNetworking3Tests */,
 				2F7092741C4611060001E252 /* AFNetworking3UITests */,
 				2F70924E1C4611060001E252 /* Products */,
-				9CFDED763DE003109BD73C79 /* Pods */,
-				1E3B702545036D77F38AE27D /* Frameworks */,
+				0F563218994F1AD459D069B4 /* Pods */,
+				A3857F1D7EE1FC81B8E9C6C8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +131,8 @@
 				2F7092571C4611060001E252 /* ViewController.m */,
 				2F7092831C4614E70001E252 /* AFNetAPIClient.h */,
 				2F7092841C4614E70001E252 /* AFNetAPIClient.m */,
+				04BE2B441D64061500C67DD6 /* NSJSONSerialization+LYJSON.h */,
+				04BE2B451D64061500C67DD6 /* NSJSONSerialization+LYJSON.m */,
 				2F7092591C4611060001E252 /* Main.storyboard */,
 				2F70925C1C4611060001E252 /* Assets.xcassets */,
 				2F70925E1C4611060001E252 /* LaunchScreen.storyboard */,
@@ -163,13 +169,12 @@
 			path = AFNetworking3UITests;
 			sourceTree = "<group>";
 		};
-		9CFDED763DE003109BD73C79 /* Pods */ = {
+		A3857F1D7EE1FC81B8E9C6C8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				40AD37A2FC6A00692212FBED /* Pods.debug.xcconfig */,
-				2D3E6C3E59E1B1E2DA19111B /* Pods.release.xcconfig */,
+				B5779A395983E89B0BA29DE2 /* libPods-AFNetworking3.a */,
 			);
-			name = Pods;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,12 +184,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2F70927A1C4611060001E252 /* Build configuration list for PBXNativeTarget "AFNetworking3" */;
 			buildPhases = (
-				6B6202364FA0CDE33BF758D7 /* Check Pods Manifest.lock */,
+				5B6B94A9EC9564AC4620D878 /* [CP] Check Pods Manifest.lock */,
 				2F7092491C4611060001E252 /* Sources */,
 				2F70924A1C4611060001E252 /* Frameworks */,
 				2F70924B1C4611060001E252 /* Resources */,
-				4D925CD50AF5008D416CCC61 /* Embed Pods Frameworks */,
-				78223D0C633B3357F6139EAC /* Copy Pods Resources */,
+				E6624D1CD4815C25BA25C162 /* [CP] Embed Pods Frameworks */,
+				A67DC1600AF8747C678A7C0B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -302,29 +307,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4D925CD50AF5008D416CCC61 /* Embed Pods Frameworks */ = {
+		5B6B94A9EC9564AC4620D878 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6B6202364FA0CDE33BF758D7 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -332,19 +322,34 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		78223D0C633B3357F6139EAC /* Copy Pods Resources */ = {
+		A67DC1600AF8747C678A7C0B /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AFNetworking3/Pods-AFNetworking3-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E6624D1CD4815C25BA25C162 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AFNetworking3/Pods-AFNetworking3-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -358,6 +363,7 @@
 				2F7092551C4611060001E252 /* AppDelegate.m in Sources */,
 				2F7092851C4614E70001E252 /* AFNetAPIClient.m in Sources */,
 				2F7092521C4611060001E252 /* main.m in Sources */,
+				04BE2B461D64061500C67DD6 /* NSJSONSerialization+LYJSON.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,7 +500,7 @@
 		};
 		2F70927B1C4611060001E252 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 40AD37A2FC6A00692212FBED /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 01B754CA56E1B17619122079 /* Pods-AFNetworking3.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AFNetworking3/Info.plist;
@@ -506,7 +512,7 @@
 		};
 		2F70927C1C4611060001E252 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2D3E6C3E59E1B1E2DA19111B /* Pods.release.xcconfig */;
+			baseConfigurationReference = 69FED9A5E973517E40FA682F /* Pods-AFNetworking3.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AFNetworking3/Info.plist;
